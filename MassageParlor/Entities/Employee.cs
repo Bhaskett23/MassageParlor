@@ -17,6 +17,12 @@ namespace MassageParlor.Entities
         [Required]
         public string LastName { get; set; }
 
-        public ICollection<EmployeeMassage> MassageServices { get; set; } = new List<EmployeeMassage>();
+        [Required]
+        public DateTime StartDate { get; set; }
+
+        [MaxLength(200)]
+        public string Description { get; set; }
+
+       // public ICollection<EmployeeMassage> MassageServices { get; set; } = new List<EmployeeMassage>();
     }
 }

@@ -25,7 +25,7 @@ namespace MassageParlor.Services
 
         public IEnumerable<Employee> GetEmployees()
         {
-            return _massageParlorContext.Employees.Include(x => x.MassageServices).ThenInclude(y => y.Massage);
+            return _massageParlorContext.Employees;//.Include(x => x.MassageServices).ThenInclude(y => y.Massage);
         }
 
         public IEnumerable<MasseuesViewModel> GetEmployeesForViewing()
@@ -35,23 +35,26 @@ namespace MassageParlor.Services
 
             foreach (var item in employees)
             {
-                List<MassagesViewModel> massages = new List<MassagesViewModel>();
-
-                foreach (EmployeeMassage employeeMassage in item.MassageServices)
-                {
-                    MassagesViewModel massagesViewModel = new MassagesViewModel()
-                    {
-                        Name = employeeMassage.Massage.Name,
-                        Description = employeeMassage.Massage.Description
-                    };
-                    massages.Add(massagesViewModel);
-                }
+               // List<MassagesViewModel> massages = new List<MassagesViewModel>();
+               //
+               // foreach (EmployeeMassage employeeMassage in item.MassageServices)
+               // {
+               //     MassagesViewModel massagesViewModel = new MassagesViewModel()
+               //     {
+               //         Name = employeeMassage.Massage.Name,
+               //         Description = employeeMassage.Massage.Description
+               //     };
+               //     massages.Add(massagesViewModel);
+               // }
 
                 MasseuesViewModel masseues = new MasseuesViewModel()
                 {
                     Name = $"{item.FirstName} {item.LastName}",
-                    MassagesProvided = massages
+                    Description = item.Description,
+                    StartDate = item.StartDate
+                 //   MassagesProvided = massages
                 };
+
                 viewModels.Add(masseues);
             }
 

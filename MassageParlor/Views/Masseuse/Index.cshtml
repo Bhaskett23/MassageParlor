@@ -4,32 +4,39 @@
     ViewData["Title"] = "Masseuses";
 }
 
-<h1>Masseuses</h1>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/massues.css" />
+</head>
+<body>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <h1>Masseuses</h1>
+
+    @*<p>
+            <a asp-action="Create">Create New</a>
+        </p>*@
+
+    @foreach (var massues in Model)
+    {
+        <div id="Employee" style="border:solid">
+            <p>
+                @Html.DisplayFor(modelItem => massues.Name) <br>
+                @Html.DisplayFor(modelItem => massues.Description) <br>
+                @Html.DisplayFor(modelItem => massues.StartDate) <br>
+            </p>
+        </div>
+        @*<div>
+            future expansion idea click name and revial information about employees
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Employee">@Html.DisplayFor(modelItem => massues.Name)</button>
+            <div id="Employee" class="collapse">
+                <p>
+                    @Html.DisplayFor(modelItem => massues.Description)
+                </p>
+                <p>
+                    @Html.DisplayFor(modelItem => massues.StartDate)
+                </p>
+            </div>
+            <br id="employeeSpliter">*@
+    }
+</body>
+</html>

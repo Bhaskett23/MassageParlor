@@ -12,8 +12,8 @@ namespace MassageParlor.Profiles
     {
         public EmployeeProfile()
         {
-            CreateMap<Employee, MasseuesViewModel>()
-                .ForMember( dto => dto.MassagesProvided, opt => opt.MapFrom(x => x.MassageServices.Select(z => z.Massage)));
+            CreateMap<Employee, MasseuesViewModel>();
+           //     .ForMember( dto => dto.MassagesProvided, opt => opt.MapFrom(x => x.MassageServices.Select(z => z.Massage)));
 
             CreateMap<Massage, MassagesViewModel>();
         }

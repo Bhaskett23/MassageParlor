@@ -20,6 +20,10 @@
     <Folder Include="Enum\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\css\massues.css" />
+  </ItemGroup>
+
 
 
 </Project>

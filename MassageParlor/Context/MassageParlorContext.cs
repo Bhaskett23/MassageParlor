@@ -18,12 +18,10 @@ namespace MassageParlor.Context
 
         public DbSet<Massage> Massages { get; set; }
 
-        public DbSet<EmployeeMassage> MyProperty { get; set; }
+        public DbSet<EmployeeMassage> EmployeeMassages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-
-            
+        {            
             modelBuilder.Entity<EmployeeMassage>()
                 .HasData(
                     new EmployeeMassage()
@@ -45,12 +43,12 @@ namespace MassageParlor.Context
                         MassageId = Guid.Parse("da2fd609-d754-4feb-8acd-c4f9ff13ba96")
                     });
 
-           // modelBuilder.Entity<EmployeeMassage>()
-           //     // .HasNoKey();
-           //     .HasKey(x => new { x.MassageId, x.EmployeeId });
+            // modelBuilder.Entity<EmployeeMassage>()
+            //     // .HasNoKey();
+            //     .HasKey(x => new { x.MassageId, x.EmployeeId });
             modelBuilder.Entity<EmployeeMassage>()
-    .HasOne<Employee>(x => x.Employee)
-    .WithMany(x => x.MassageServices);
+    .HasOne<Employee>(x => x.Employee);
+    //.WithMany(x => x.MassageServices);
             modelBuilder.Entity<EmployeeMassage>()
                 .HasOne<Massage>(x => x.Massage)
                 .WithMany(x => x.EmployeesThatPerformThis);
@@ -60,13 +58,17 @@ namespace MassageParlor.Context
                     {
                         Id = Guid.Parse("5b1c2b4d-48c7-402a-80c3-cc796ad49c6b"),
                         FirstName = "Alex",
-                        LastName = "Down"
+                        LastName = "Down",
+                        Description = "Started doing massages out of high school joined company in the summer of 2005",
+                        StartDate = DateTime.Parse("2005/06/06")
                     },
                     new Employee()
                     {
                         Id = Guid.Parse("d8663e5e-7494-4f81-8739-6e0de1bea7ee"),
                         FirstName = "Brandon",
-                        LastName = "Ten"
+                        LastName = "Ten",
+                        Description = "Brandon comes with extensive experience as our oldest memeber starting back in 1996",
+                        StartDate = DateTime.Parse("1996/05/12")
                     }
                 );
             modelBuilder.Entity<Massage>()
