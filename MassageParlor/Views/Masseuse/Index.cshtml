@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MassageParlor.Models.MasseuesViewModel>
+
+@{
+    ViewData["Title"] = "Masseuses";
+}
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/massues.css" />
+</head>
+<body>
+
+    <h1>Masseuses</h1>
+
+    @*<p>
+            <a asp-action="Create">Create New</a>
+        </p>*@
+
+    @foreach (var massues in Model)
+    {
+        <div id="Employee" style="border:solid">
+            <p>
+                @Html.DisplayFor(modelItem => massues.Name) <br>
+                @Html.DisplayFor(modelItem => massues.Description) <br>
+                @Html.DisplayFor(modelItem => massues.StartDate) <br>
+            </p>
+        </div>
+        @*<div>
+            future expansion idea click name and revial information about employees
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Employee">@Html.DisplayFor(modelItem => massues.Name)</button>
+            <div id="Employee" class="collapse">
+                <p>
+                    @Html.DisplayFor(modelItem => massues.Description)
+                </p>
+                <p>
+                    @Html.DisplayFor(modelItem => massues.StartDate)
+                </p>
+            </div>
+            <br id="employeeSpliter">*@
+    }
+</body>
+</html>
