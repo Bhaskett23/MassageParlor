@@ -60,5 +60,23 @@ namespace MassageParlor.Services
 
             return viewModels;
         }
+
+        public IEnumerable<MassagesViewModel> GetMassages()
+        {
+            IEnumerable<Massage> massages = _massageParlorContext.Massages;
+            List<MassagesViewModel> massagesViewModels = new List<MassagesViewModel>();
+
+            foreach(Massage massage in massages)
+            {
+                MassagesViewModel massagesViewModel = new MassagesViewModel
+                {
+                    Name = massage.Name,
+                    Description = massage.Description
+                };
+                massagesViewModels.Add(massagesViewModel);
+            }
+
+            return massagesViewModels;
+        }
     }
 }

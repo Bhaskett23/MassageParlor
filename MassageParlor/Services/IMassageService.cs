@@ -11,5 +11,6 @@ namespace MassageParlor.Services
     {
         IEnumerable<Employee> GetEmployees();
         IEnumerable<MasseuesViewModel> GetEmployeesForViewing();
+        IEnumerable<MassagesViewModel> GetMassages();
     }
 }

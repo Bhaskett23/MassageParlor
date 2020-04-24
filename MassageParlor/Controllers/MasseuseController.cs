@@ -11,11 +11,9 @@ namespace MassageParlor.Controllers
     public class MasseuseController : Controller
     {
         private readonly IMassageService _massage;
-        private readonly IMapper _mapper;
 
-        public MasseuseController(IMassageService massage, IMapper mapper)
+        public MasseuseController(IMassageService massage)
         {
-            _mapper = mapper;
             _massage = massage;
         }
 
